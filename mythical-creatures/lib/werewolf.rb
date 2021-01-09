@@ -29,6 +29,7 @@ class Werewolf
   def eat(victim)
     if self.wolf?
     victim.status = :dead
+    @hungry = false
     elsif human == true
       "Yuck. I'm not a cannibal."
     end
