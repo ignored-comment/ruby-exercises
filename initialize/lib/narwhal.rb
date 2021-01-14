@@ -10,5 +10,4 @@ class Narwhal
   def cute?
     @cute
   end
-
 end
