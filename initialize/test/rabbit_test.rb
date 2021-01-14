@@ -14,6 +14,7 @@ class RabbitTest < Minitest::Test
   end
 
   def test_if_it_has_two_syllables_the_name_ends_with_rabbit
+    # skip
     ralph = Rabbit.new({name: "Ralph", num_syllables: 1})
     rita = Rabbit.new({name: "Rita", num_syllables: 2})
     roberto = Rabbit.new({name: "Roberto", num_syllables: 3})
