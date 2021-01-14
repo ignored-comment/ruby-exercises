@@ -14,6 +14,7 @@ class QuailTest < Minitest::Test
   end
 
   def test_it_will_make_sure_its_name_is_capitalized
+    # skip
     quinn = Quail.new("quinn")
     assert_equal "Quinn", quinn.name
   end
