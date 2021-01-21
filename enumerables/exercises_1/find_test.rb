@@ -25,9 +25,10 @@ class FindTest < Minitest::Test
     # skip
     words = ["noise", "dog", "fair", "house", "waldo", "bucket", "fish"]
     # Your code goes here
-    found = words.find do |word|
-      word["waldo"]
-    end
+    # found = words.find do |word|
+    #   word["waldo"]
+    # end
+    found = words.find {|word| word["waldo"]}
     assert_equal "waldo", found
   end
 
@@ -35,9 +36,10 @@ class FindTest < Minitest::Test
     # skip
     words = ["piglet", "porridge", "bear", "blueberry"]
     # Your code goes here
-    found = words.find do |word|
-      word.length == 3
-    end
+    # found = words.find do |word|
+    #   word.length == 3
+    # end
+    found = words.find {|word| word.length == 3}
     assert_equal nil, found
   end
 
@@ -45,9 +47,10 @@ class FindTest < Minitest::Test
     # skip
     numbers = [2, 13, 19, 8, 3, 27]
     # Your code goes here
-    found = numbers.find do |number|
-      number == 13
-    end
+    # found = numbers.find do |number|
+    #   number == 13
+    # end
+    found = numbers.find {|number| number == 13}
     assert_equal 13, found
   end
 
@@ -55,9 +58,10 @@ class FindTest < Minitest::Test
     # skip
     numbers = [3, 7, 13, 11, 10, 2, 17]
     # Your code goes here
-    found = numbers.find do |number|
-      number % 2 == 0
-    end
+    # found = numbers.find do |number|
+    #   number % 2 == 0
+    # end
+    found = numbers.find {|number| number % 2 == 0}
     assert_equal 10, found
   end
 
@@ -65,9 +69,10 @@ class FindTest < Minitest::Test
     # skip
     numbers = [2, 8, 9, 27, 24, 5]
     # Your code goes here
-    found = numbers.find do |number|
-      number % 3 == 0
-    end
+    # found = numbers.find do |number|
+    #   number % 3 == 0
+    # end
+    found = numbers.find {|number| number % 3 == 0}
     assert_equal 9, found
   end
 
@@ -75,9 +80,10 @@ class FindTest < Minitest::Test
     # skip
     words = ["weirdo", "quill", "fast", "quaint", "quitter", "koala"]
     # Your code goes here
-    found = words.find do |word|
-      word["quill"]
-    end
+    # found = words.find do |word|
+    #   word["quill"]
+    # end
+    found = words.find {|word| word["q"]}
     assert_equal "quill", found
   end
 
@@ -85,9 +91,10 @@ class FindTest < Minitest::Test
     # skip
     words = ["biggest", "pour", "blight", "finger", "pie", "border"]
     # Your code goes here
-    found = words.find do |word|
-      word.include?("er")
-    end
+    # found = words.find do |word|
+    #   word.include?("er")
+    # end
+    found = words.find {|word| word.include? "er"}
     assert_equal "finger", found
   end
 
@@ -95,9 +102,11 @@ class FindTest < Minitest::Test
     # skip
     numbers = [1, 8, 19, 21, 29, 31, 34]
     # Your code goes here
-    found = numbers.find do |number|
-      number > 20
-    end
+    # found = numbers.find do |number|
+    #   number > 20
+    # end
+
+    found = numbers.find {|number| number > 20}
     assert_equal 21, found
   end
 
