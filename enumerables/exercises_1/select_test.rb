@@ -6,18 +6,22 @@ class SelectTest < Minitest::Test
 
   def test_pick_even_numbers
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    evens = numbers.select do |number|
-      number.even?
-    end
+    # evens = numbers.select do |number|
+    #   number.even?
+    # end
+    # evens = numbers.select {|number| number % 2 == 0}
+    evens = numbers.select {|number| number.even?}
     assert_equal [2, 4, 6, 8, 10], evens
   end
 
   def test_pick_odd_numbers
     numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    odds = numbers.select do |number|
-      # Your code goes here
-      number % 2 == 1
-    end
+    # odds = numbers.select do |number|
+    #   # Your code goes here
+    #   number % 2 == 1
+    # end
+    # odds = numbers.select {|number| number.odd?}
+    odds = numbers.select {|number| number % 2 == 1}
     assert_equal [1, 3, 5, 7, 9], odds
   end
 
@@ -25,9 +29,10 @@ class SelectTest < Minitest::Test
     # skip
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
     # Your code goes here
-    selected = words.select do |word|
-      word.length == 3
-    end
+    # selected = words.select do |word|
+    #   word.length == 3
+    # end
+    selected = words.select {|word| word.length == 3}
     assert_equal ["bad", "cat", "dog", "red"], selected
   end
 
@@ -35,9 +40,10 @@ class SelectTest < Minitest::Test
     # skip
     words = ["pill", "bad", "finger", "cat", "blue", "dog", "table", "red"]
     # Your code goes here
-    selected = words.select do |word|
-      word.length > 3
-    end
+    # selected = words.select do |word|
+    #   word.length > 3
+    # end
+    selected = words.select {|word| word.length > 3}
     assert_equal ["pill", "finger", "blue", "table"], selected
   end
 
@@ -45,9 +51,11 @@ class SelectTest < Minitest::Test
     # skip
     words = ["are", "you", "strike", "thinking", "belt", "piece", "warble", "sing", "pipe"]
     # Your code goes here
-    selected = words.select do |word|
-      word[-1, 1] == "e"
-    end
+    # selected = words.select do |word|
+    #   word[-1, 1] == "e"
+    # end
+    # selected = words.select {|word| word[-1] == "e"}
+    selected = words.select {|word| word.end_with? 'e'}
     assert_equal ["are", "strike", "piece", "warble", "pipe"], selected
   end
 
@@ -55,9 +63,10 @@ class SelectTest < Minitest::Test
     # skip
     words = ["bring", "finger", "drought", "singing", "bingo", "purposeful"]
     # Your code goes here
-    selected = words.select do |word|
-      word.end_with?("ing")
-    end
+    # selected = words.select do |word|
+    #   word.end_with?("ing")
+    # end
+    selected = words.select {|word| word.end_with? 'ing'}
     assert_equal ["bring", "singing"], selected
   end
 
@@ -65,9 +74,10 @@ class SelectTest < Minitest::Test
     # skip
     words = ["four", "red", "five", "blue", "pizza", "purple"]
     # Your code goes here
-    selected = words.select do |word|
-      word.include?("e")
-    end
+    # selected = words.select do |word|
+    #   word.include?("e")
+    # end
+    selected = words.select {|word| word.include? 'e'}
     assert_equal ["red", "five", "blue", "purple"], selected
   end
 
@@ -75,9 +85,10 @@ class SelectTest < Minitest::Test
     # skip
     animals = ["tyrannosaurus", "narwhal", "eel", "achillesaurus", "qingxiusaurus"]
     # Your code goes here
-    dinosaurs = animals.select do |animal|
-      animal.end_with?("aurus")
-    end
+    # dinosaurs = animals.select do |animal|
+    #   animal.end_with?("aurus")
+    # end
+    dinosaurs = animals.select {|animal| animal.end_with? 'aurus'}
     assert_equal ["tyrannosaurus", "achillesaurus", "qingxiusaurus"], dinosaurs
   end
 
@@ -85,9 +96,10 @@ class SelectTest < Minitest::Test
     # skip
     numbers = [3, 1.4, 3.5, 2, 4.9, 9.1, 8.0]
     # Your code goes here
-    floats = numbers.select do |number|
-      number.kind_of?(Float) == true
-    end
+    # floats = numbers.select do |number|
+    #   number.kind_of?(Float) == true
+    # end
+    floats = numbers.select {|number| number.class == Float}
     assert_equal [1.4, 3.5, 4.9, 9.1, 8.0], floats
   end
 
@@ -95,9 +107,10 @@ class SelectTest < Minitest::Test
     # skip
     elements = ["CAT", ["dog"], 23, [56, 3, 8], "AIMLESS", 43, "butter"]
     # Your code goes here
-    arrays = elements.select do |element|
-      element.kind_of?(Array) == true
-    end
+    # arrays = elements.select do |element|
+    #   element.kind_of?(Array) == true
+    # end
+    arrays = elements.select {|element| element.class == Array}
     assert_equal [["dog"], [56, 3, 8]], arrays
   end
 
@@ -105,9 +118,10 @@ class SelectTest < Minitest::Test
     # skip
     elements = ["cat", {:dog=>"fido"}, 23, {:stuff=>"things"}, "aimless", 43]
     # Your code goes here
-    hashes = elements.select do |element|
-      element.kind_of?(Hash) == true
-    end
+    # hashes = elements.select do |element|
+    #   element.kind_of?(Hash) == true
+    # end
+    hashes = elements.select {|element| element.class == Hash}
     assert_equal [{:dog=>"fido"}, {:stuff=>"things"}], hashes
   end
 
